@@ -1,0 +1,21 @@
+<%= form_for @person do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :fname %>
+	<%= f.text_field :lname %><br><br>
+
+	<%= f.collection_check_boxes :habit_ids, Habit.all, :id, :name %>
+	<br><br>
+
+		<%= f.fields_for :ducks do |d| %>
+			<%= d.label :pet_duck %>
+			<%= d.text_field :name %>
+			<br>
+			<%= d.label :color %>
+			<%= d.text_field :color %>
+			<br>
+			<%= d.label :totability %>
+			<%= d.text_field :totability %>
+		<%  end %>
+
+	<%= f.submit "Quack Quack" %>
+	<% end %>
